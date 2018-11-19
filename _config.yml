@@ -186,6 +186,14 @@ defaults:
       path: ""
       type: posts
     values:
+      ---
+      layout: article
+      title: Page - Sidebar
+      aside:
+        toc: true
+      sidebar:
+        nav: layouts
+      ---
       layout: article
       sharing: true
       license: true
