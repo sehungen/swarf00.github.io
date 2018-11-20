@@ -12,10 +12,10 @@ docs-ko:
   - title: Django Basic
     children:
       - title: Quick Strart
-        url:   /docs/ko/quick-start
+        url:   /docs/ko/quick-start.html
       - title: Install
-        url:   /docs/ko/install
+        url:   /docs/ko/install.html
       - title: Setup
-        url:   /docs/ko/setup
+        url:   /docs/ko/setup.html
 sidebar:
   nav: docs-ko
