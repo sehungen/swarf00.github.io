@@ -9,13 +9,21 @@ header:
     url:        /about.html
 
 docs-ko:
-  - title: Django Basic
+  - title:     프로젝트 개발에 앞서...
     children:
-      - title: Quick Strart
-        url:   /docs/ko/quick-start.html
-      - title: Install
-        url:   /docs/ko/install.html
-      - title: Setup
-        url:   /docs/ko/setup.html
+      - title: Get Strarted
+        url:   /get-started.html
+      - title: 설치하기
+        url:   /install.html
+  - title:      Mini tutorial
+    children:
+      - title: 프로젝트 만들기
+        url:   /setup-project.html
+      - title: Model 만들기
+        url:   /build-model.html
+      - title: View 만들기
+        url:   /build-view.html
+      - title: template 만들기
+        url:   /build-template.html
 sidebar:
   nav: docs-ko
