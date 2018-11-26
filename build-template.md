@@ -357,7 +357,7 @@ class ArticleDetailView(TemplateView):
 
 게시글 목록에서 아무 행이나 클릭해서 상세페이지로 이동해 봅니다. 제대로 ~~복붙~~작성했다면 테이블이 나타날 겁니다.
 
-![ArticleDetail 템플릿 구현 후]({{ site.url }}/snapshots/result_articledetail_01.png)
+![ArticleDetail 템플릿 구현 후]({{site.url}}/snapshots/result_articledetail_01.png)
 
 ### 템플릿 필터
 정상적으로 출력된 듯 합니다. ~~구라고~~유심히 살펴보면 두 가지가 불편해 보입니다.
