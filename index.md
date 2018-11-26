@@ -13,3 +13,4 @@ sidebar:
 ### Mini tutorial
 [핥짝핥짝]({{ site.url }}/setup-project.html)
 
+[github](https://github.com/swarf00/minitutorial.git)
