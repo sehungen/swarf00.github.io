@@ -45,8 +45,11 @@ CMS 부터 SNS 그리고 과학계산 플랫폼으로도 사용가능합니다.
 
 ## 장고 앱 맛보기
 [프로젝트 만들기](/setup-project.html)
+
 [모델 만들기](/build-model.html)
+
 [뷰 만들기](/build-view.html)
+
 [템플릿 만들기](/build-template.html)
 
 ## 실습
