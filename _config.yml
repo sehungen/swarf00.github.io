@@ -153,8 +153,10 @@ analytics:
 
   ## Google Analytics
   google:
-    tracking_id : # Google Analytics id for the site
-    anonymize_ip: false # Anonymize IP tracking for Analytics
+    tag_manager:
+      container_id: GTM-PN94PQT
+    # tracking_id : # Google Analytics id for the site
+    # anonymize_ip: false # Anonymize IP tracking for Analytics
 
 
 ## => Build

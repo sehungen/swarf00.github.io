@@ -5,8 +5,10 @@ layout: none
 {%- include snippets/get-lang.html -%}
 <html lang="{{ __return }}">
   <head>
+    {% gtm head %}
     {%- include analytics.html -%}
     {%- include head.html -%}
+
     <script>
       {%- include scripts/utils.js -%}
       {%- include scripts/lib/throttle.js -%}
@@ -15,6 +17,7 @@ layout: none
     {%- include scripts/variables.html -%}
   </head>
   <body>
+    {% gtm body %}
     <div class="root" data-is-touch="false">
       {{ content }}
     </div>
