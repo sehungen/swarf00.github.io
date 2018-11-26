@@ -278,7 +278,7 @@ class ArticleListView(TemplateView):
 {% endraw %}
 ```
 
-![ArticleList 최종화면]({{ site.url }}/snapshots/result_articlelist_04)
+![ArticleList 최종화면]({{ site.url }}/snapshots/result_articlelist_04.png)
 
 테이블의 행을 클릭하면 그 행의 `pk`를 따라 이동하도록 했습니다. `tr`, `td` 태그에서는 `a` 태그가 적용되지 않아서 `tr`태그에 `onclick` 이벤트를 등록했습니다. 태그의 `onclick` 속성값을 정의하면 해당 태그를 클릭했을 때 정의된 값이 실행됩니다.
 새 게시글 작성 버튼은 무조건 `/article/create/`로 이동하도록 했습니다. 게시글 목록 템플릿의 디자인은 여기서 멈춥니다.~~더 이상 설명하면 디자이너들 밥줄 끊깁니다. 갑자기 뭐래...~~
