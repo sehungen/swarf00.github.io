@@ -1,12 +1,8 @@
 header:
   - titles:
-      en:       Setup
-      ko:       설치
-    url:        /archive.html
-  - titles:
-      en:       About
-      ko:       뉴규?
-    url:        /about.html
+      en:       minitutorial
+      ko:       맛보기
+    url:        /setup-project.html
 
 docs-ko:
   - title:     프로젝트 개발에 앞서...
