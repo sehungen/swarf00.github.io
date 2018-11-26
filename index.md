@@ -11,5 +11,5 @@ sidebar:
 [시작하기]({{ site.url }}/get-started.html)
 
 ### Mini tutorial
-[핥짝핥짝]({{ site.url }}/setup-project.ㅗ싀)
+[핥짝핥짝]({{ site.url }}/setup-project.html)
 
