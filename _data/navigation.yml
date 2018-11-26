@@ -23,7 +23,7 @@ docs-ko:
         url:   /build-model.html
       - title: View 만들기
         url:   /build-view.html
-      - title: template 만들기
+      - title: Template 만들기
         url:   /build-template.html
 sidebar:
   nav: docs-ko
