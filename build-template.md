@@ -360,7 +360,7 @@ class ArticleDetailView(TemplateView):
 ![ArticleDetail 템플릿 구현 후]({{ site.url }}/snapshots/result_articledetail_01.png)
 
 ### 템플릿 필터
-정상적으로 출력된 듯 합니다. ~~구라고~~유심히 살펴보면 두 가지가 불편해 보입니다.
+정상적으로 출력된 듯 합니다. ~~구라고~~ 유심히 살펴보면 두 가지가 불편해 보입니다.
 1. 내용의 데이터가 한줄로 출력되었는데, 제가 입력할 때는 줄바꿈이 있었습니다. 즉 `'\n'` 문자가 html에서는 적용이 안됩니다.
 2. 작성일이 일반 한국사람이 보기에 적합하지 않습니다. 제가 익숙한 `yyyy-mm-dd HH:MM` 형식으로 출력되면 좋겠습니다.
 
