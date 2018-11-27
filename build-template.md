@@ -176,7 +176,7 @@ class ArticleListView(TemplateView):
 ```
 템플릿의 `title` 태그로 페이지 제목을 알 수 있으니 ctx의 view 값을 제거했습니다. `data`라는 이름으로 모호했던 이름을 템플릿에서 사용하는 `articles`로 변경합니다. 현재 저의 데이터베이스에는 2개의 레코드가 저장된 상태라서 `articles.count()`는 2입니다.
 
-![ArticleList for 태그 적용]({{ site.url }}/snapshots/result_articlelist_02.png)
+![ArticleList for 태그 적용]({{ site.url }}/snapshots/result_articlelist_02.png){:.border .rounded .shadow}
 
 게시글이 총 2개이기 때문에 tr 태그가 2번 반복해서 출력이 되었습니다. 그럼 마지막으로 td의 값을 실제 값으로 채워넣으면 됩니다.
 ```html
@@ -206,7 +206,7 @@ class ArticleListView(TemplateView):
 
 템플릿 변수를 사용하면 특정 값으로 치환을 할 수 있습니다. `for 루프`에서 선언한 변수 article의 값을 템플릿변수에서 접근하는데 각각 `pk`, `title`, `author` 속성값으로 치환합니다. `pk`는 전에 설명한 대로 `primarykey`로 설정된 값 즉, id가 반환됩니다.
 
-![ArticleList 템플릿변수 적용]({{ site.url }}/snapshots/result_articlelist_03.png)
+![ArticleList 템플릿변수 적용]({{ site.url }}/snapshots/result_articlelist_03.png){:.border .rounded .shadow}
 
 [bootstrap](http://bootstrapk.com/css/#tables)을 이용해서 디자인을 좀 입혀보겠습니다. [bootstrap](http://bootstrapk.com/)의 한글 메뉴얼도 있으니 참고해보시면 더 좋은 기능들을 확인할 수 있습니다. 
 
@@ -278,7 +278,7 @@ class ArticleListView(TemplateView):
 {% endraw %}
 ```
 
-![ArticleList 최종화면]({{ site.url }}/snapshots/result_articlelist_04.png)
+![ArticleList 최종화면]({{ site.url }}/snapshots/result_articlelist_04.png){:.border .rounded .shadow}
 
 테이블의 행을 클릭하면 그 행의 `pk`를 따라 이동하도록 했습니다. `tr`, `td` 태그에서는 `a` 태그가 적용되지 않아서 `tr`태그에 `onclick` 이벤트를 등록했습니다. 태그의 `onclick` 속성값을 정의하면 해당 태그를 클릭했을 때 정의된 값이 실행됩니다.
 새 게시글 작성 버튼은 무조건 `/article/create/`로 이동하도록 했습니다. 게시글 목록 템플릿의 디자인은 여기서 멈춥니다.~~더 이상 설명하면 디자이너들 밥줄 끊깁니다. 갑자기 뭐래...~~
@@ -357,7 +357,7 @@ class ArticleDetailView(TemplateView):
 
 게시글 목록에서 아무 행이나 클릭해서 상세페이지로 이동해 봅니다. 제대로 ~~복붙~~작성했다면 테이블이 나타날 겁니다.
 
-![ArticleDetail 템플릿 구현 후]({{ site.url }}/snapshots/result_articledetail_01.png)
+![ArticleDetail 템플릿 구현 후]({{ site.url }}/snapshots/result_articledetail_01.png){:.border .rounded .shadow}
 
 ### 템플릿 필터
 정상적으로 출력된 듯 합니다. ~~구라고~~ 유심히 살펴보면 두 가지가 불편해 보입니다.
@@ -472,7 +472,7 @@ class ArticleDetailView(TemplateView):
 
 > csrf verification은 이용자가 원치 않는 post요청을 하는 것을 막기 위한 보안 프레임워크입니다. csrf 공격방법은 [나무위키](https://namu.wiki/w/CSRF)에 잘 정리되어 있으니 참고해서 이해하는 것이 좋습니다. 장고의 보안 프레임워크는 만능이 아니고 날이 갈수록 진보된 공격방식이 개발되기 때문에 공격 매카니즘을 이해하는 것이 필요합니다.
 
-![ArticleUpdate 템플릿 구현 후]({{ site.url }}/snapshots/result_articleupdate_01.png)
+![ArticleUpdate 템플릿 구현 후]({{ site.url }}/snapshots/result_articleupdate_01.png){:.border .rounded .shadow}
 
 정상적으로 출력이 됩니다. 그런데 내용을 수정하고 게시글 수정 버튼을 눌렀는데 살짝 깜박임이 보이지만 저장이 잘 되었는 지 의심이 됩니다. 여러번 반복해도 내 눈을 의심하게 될 뿐 저장되었다는 확신이 없습니다. 에러가 발생한 경우도 그냥 에러화면으로 이동이 되는 것이 마음에 걸렸는데 이번 기회에 메시지창을 만들어서 사용자요청이 어떻게 처리되었는 지 알려주는 것이 좋을 것 같습니다.
 
@@ -573,7 +573,7 @@ messages.get_messages(request) 함수는 현재까지 저장된 메시지들을 
 ```
 if 템플릿 태그로 messages 객체가 있는지 확인합니다. if 태그는 반드시 endif 태그로 종료되어야 한다는 것 주의하셔야 합니다. messages 객체는 iterable 객체이기 때문에 for-in 루프로 반복출력해야 합니다. for-in 루프처럼 iterate를 진행해야 메시지가 사용된 것으로 변경됩니다. message 그 자체를 출력해도 되고 message.tags 또는 message.level를 이용하셔도 됩니다. message.level은 message를 저장할 때 사용하는 그 레벨이 출력이 되고, tags는 extra_tags와 message.level의 조합입니다. 이 예제에서는 message.tags를 이용했는데 extra_tags를 전달하지 않았기 때문에 level값만 출력이 됩니다. bootstrap의 alert class 를 사용하면 쉽게 강조표시를 할 수 있습니다. alert-success, alert-info, alert-warning, alert-danger 등에 따라 색상이 달라지기 때문에 message의 레벨을 적절히 조합하면 손쉽게 일관성있는 강조 표시를 할 수 있습니다. messages 에는 danger라는 레벨이 없기 때문에 error라는 레벨의 함수에는 `extra_tags`를 이용해서 `error`를 추가해줬습니다. 그러면 message.tags 는 `'danger error'`를 출력합니다.
 
-![ArticleUpdate 메시지 추가]({{ site.url }}/snapshots/result_articleupdate_02.png)
+![ArticleUpdate 메시지 추가]({{ site.url }}/snapshots/result_articleupdate_02.png){:.border .rounded .shadow}
 
 ### 부트스트랩 네비게이션바
 업데이트까지 정상적으로 되는 것이 확인되었습니다. 이제 마지막으로 게시글 생성 기능을 구현하면 되는데 목록보기로 바로 갈 수 있는 버튼이 없어 불편합니다. 브라우저의 뒤로가기 기능을 사용해도 되지만 여러번 수정했을 경우 여러번 뒤로 가야 하는 문제가 있습니다. 상단의 네비게이션바가 없어서 허전했었는데 네비게이션바에 홈버튼을 추가하면 좀 편리할 것 같습니다.

@@ -323,18 +323,18 @@ Superuser created successfully.
 ### Admin 사이트 접속
 장고를 재시작하고 `http://127.0.0.1:8000/admin` 으로 접속합니다.
 
-![로그인 화면]({{ site.url }}/snapshots/admin_login.png)
+![로그인 화면]({{ site.url }}/snapshots/admin_login.png){:.border .rounded .shadow}
 
 superuser 계정으로 로그인하시면 현재 admin 사이트에 등록된 앱과 모델들이 나타납니다.
 장고2부터는 admin 사이트도 ResponsiveWebDesign이 지원됩니다. pc화면에서는 좀 더 시원한 화면을 볼 수 있습니다.
 
-![로그인 후 화면]({{ site.url }}/snapshots/admin_home.png)
+![로그인 후 화면]({{ site.url }}/snapshots/admin_home.png){:.border .rounded .shadow}
 
 로그인을 하고 admin 사이트의 웰컴페이지가 나타납니다. admin 사이트에 등록된 모든 모델들이 앱별로 보여줍니다. 아직까지 bbs의 모델은 등록되지 않은 상태여서 보이지 않습니다. 기본 등록된 모델을 빠르게 보겠습니다.
 
 AUTHENTICATION AND AUTHORIZATION(인증과 권한) 앱에 `Groups`, `Users` 두 모델이 등록되어 있는 것이 확인됩니다. Recent actions라고 가장 최근 작업에 대한 기록도 출력됩니다.
 
-![User 모델 화면]({{ site.url }}/snapshots/admin_aa_users.png)
+![User 모델 화면]({{ site.url }}/snapshots/admin_aa_users.png){:.border .rounded .shadow}
 
 `Groups` 에는 아무런 레코드도 없고, `Users`를 보니 아까 생성한 `superuser`의 정보가 보입니다. 다행히 비밀번호는 보이지 않습니다.(사실 비밀번호는 해시로 인코딩 되어 있어 안전합니다.)
 
@@ -352,11 +352,11 @@ admin.site.register(Article)
 
 `admin.site.register` 함수를 이용하면 간단하게 `Article` 모델을 admin 사이트에 등록할 수 있습니다. 장고를 재시작하고 다시 admin 사이트에 접속합니다.
 
-![Article 모델 추가화면]({{ site.url }}/snapshots/admin_home_article.png)
+![Article 모델 추가화면]({{ site.url }}/snapshots/admin_home_article.png){:.border .rounded .shadow}
 
 BBS 앱에 `Article` 모델이 추가된 걸 확인 할 수 있습니다. `Article` 모델을 클릭하면 레코드리스트가 보입니다.
 
-![Article 리스트 변경전]({{ site.url}}/snapshots/admin_article.png)
+![Article 리스트 변경전]({{ site.url}}/snapshots/admin_article.png){:.border .rounded .shadow}
 
 ### Admin 사이트 커스터마이징
 하나의 데이터만 생성시켰었기 때문에 하나의 레코드만 보입니다. 데이터가 문자열형태로 표현되는데 보기가 불편합니다. admin 사이트는 손쉽게 출력화면을 커스터마이징할 수 있는 방법을 제공합니다.
@@ -379,7 +379,7 @@ class ArticleAdmin(admin.ModelAdmin):
     date_created.short_description = '작성일'                 # date_created 컬럼 제목에 보일 텍스트
 ```
 
-![Article 리스트 변경후]({{ site.url }}/snapshots/admin_article_new.png))
+![Article 리스트 변경후]({{ site.url }}/snapshots/admin_article_new.png)){:.border .rounded .shadow}
 
 이전과 다르게 ArticleAdmin이란 클래스를 생성 후 @admin.register(Article) 데코리이터로 wrapping을 했습니다. admin.site.register 함수를 사용하는 것보다 번거롭지만 상세한 설정이 가능합니다.
 
@@ -389,7 +389,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 변경한 대로 작성일 컬럼이 추가되었고 출력형식은 `%Y-%m-%d` 형식으로 출력됩니다. 또한 제목을 클릭하면 작성일을 기준으로 정렬을 할 수 있습니다. 제목을 클릭하여 상세 페이지로 이동할 수 있습니다.
 
-![Article 리스트 변경후]({{ site.url }}/snapshots/admin_article_detail.png))
+![Article 리스트 변경후]({{ site.url }}/snapshots/admin_article_detail.png)){:.border .rounded .shadow}
 
 상세 페이지에서 작성일이 보이지 않는데 `DateTimeField`의 `auto_now_add` 속성이 `True`로 설정이 되면 `editable` 속성이 자동으로 `False`가 설정됩니다. `editable` 속성을 `True`로 변경해 주면 디테일 화면에서 확인 및 수정이 가능해집니다.
 ```python
@@ -408,7 +408,7 @@ class Article(models.Model):
         return '[{}] {}'.format(self.id, self.title)
 ```
 
-![Article 상세 페이지]({{ site.url }}/snapshots/admin_article_detail_new.png)
+![Article 상세 페이지]({{ site.url }}/snapshots/admin_article_detail_new.png){:.border .rounded .shadow}
 
 > 모델만들기에 약간의 시간을 허비했지만 admin 사이트를 더 많은 방법으로 커스터마이징 하는 것이 이번 튜토리얼의 목표에 대해서 불필요하므로 임시로 덮어 두기로 결정하였다.
 >

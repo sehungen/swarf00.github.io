@@ -294,7 +294,7 @@ ctx 값은 `view`와 `data`로 구성했습니다. `view`의 값 `self.__class__
 ```
 템플릿에서 ctx의 값을 사용하는 방법은 간단합니다. ctx 객체에 저장된 데이터의 key 이름을 `{{ "{{ " }}}}` 안에 넣어주기만 합니다. 템플릿 엔진은 `{{ "{{ " }}}}`로 표시를 안에 있는 key에 하당하는 값으로 치환해줍니다.
 
-![ArticleListView 결과]({{ site.url }}/snapshots/result_articlelist_01.png)
+![ArticleListView 결과]({{ site.url }}/snapshots/result_articlelist_01.png){:.border .rounded .shadow}
 
 출력결과가 위와 같이 나온다면 성공입니다. `<QuerySet [<Article: [1] How to create a article>]>`는 검색된 `QuerySet`오브젝트이고 리스트 안에 보이는 객체들이 검색결과입니다.
 
@@ -416,7 +416,7 @@ http post의 경우 request.body 객체에 데이터 내용이 문자열 형태�
 (test-venv-36) $ curl -X POST http://127.0.0.1:8000/article/create/ -d "title='test title'&content='test content'"
 ```
 
-![ArticleCreateUpdate 뷰의 create 결과]({{ site.url }}/snapshots/result_articlecreate_01.png)
+![ArticleCreateUpdate 뷰의 create 결과]({{ site.url }}/snapshots/result_articlecreate_01.png){:.border .rounded .shadow}
 
 ### CSRF verification
 
