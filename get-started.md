@@ -5,6 +5,7 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+comment: true
 ---
 
 ## 장고를 사용해야 할 이유가 뭔가요?

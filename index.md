@@ -1,8 +1,8 @@
 ---
-layout: landing
+layout: page
 title: 목차
 aside:
-  toc: true
+  toc: false
 sidebar:
   nav: docs-ko
 ---
