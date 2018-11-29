@@ -13,12 +13,12 @@ sidebar:
    >
    > [virtualenv 설치](https://docs.python.org/ko/3.6/tutorial/venv.html)
 
-   virtualenv까지 아래 명령어로 가상환경을 만드세요.
+   virtualenv까지 설치하셨다면 아래 명령어로 가상환경을 만드세요.
    ```bash
    $ python3 -m venv test-venv-36
    ```
 
-2. 가상환경을 활성화 시키세요.
+2. 가상환경을 활성화시키세요.
 ```bash
 $ source test-venv-36/bin/activate
 ```
