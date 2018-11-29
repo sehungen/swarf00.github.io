@@ -678,7 +678,61 @@ upate는 url에 article.pk 값이 포함되기 때문에 아직 객체가 생성
 
 그리고 `action`의 값은 뷰에서 article 객체가 전달되었으면 `'update'` 그렇지 않으면 `'create'`가 되도록 수정했습니다. 게시글 생성화면에서 article 객체가 전달되지 않지만 `article.pk`, `article.title` 등의 변수는 python과는 달리 오류를 발생하지 않습니다. **None 객체의 속성값에 접근하면 None이 출력됩니다**.
 
-이대로 테스트를 해보면 게시글 저장이 정상적으로 저장되지만, 저장된 내용으로 채워진 게시글 저장화면으로 이동합니다. 업데이트 화면과 혼동이 될 수 있으니 아예 게시글이 저장이 되면 게시글 목록 화면으로 이동시킵니다.
+이대로 테스트를 해보면 게시글 저장이 정상적으로 작동되지만, 저장된 내용으로 채워진 게시글 수정화면으로 이동합니다. 저장 전과 후의 화면이 혼동될 수 있으니 아예 새 게시글이 정상적으로 저장이 되면 게시글 목록 화면으로 이동시킵니다.
+```python
+# bbs/views.py
+
+# 생략
+
+class ArticleCreateUpdateView(TemplateView):
+    template_name = 'article_update.html'
+    queryset = Article.objects.all()
+    pk_url_kwargs = 'article_id'
+
+    def get_object(self, queryset=None):
+        queryset = queryset or self.queryset
+        pk = self.kwargs.get(self.pk_url_kwargs)
+        article = queryset.filter(pk=pk).first()
+
+        if pk and not article:
+            raise Http404('invalid pk')
+        return article
+
+    def get(self, request, *args, **kwargs):
+        article = self.get_object()
+
+        ctx = {
+            'article': article,
+        }
+        return self.render_to_response(ctx)
+
+    def post(self, request, *args, **kwargs):
+        action = request.POST.get('action')
+        post_data = {key: request.POST.get(key) for key in ('title', 'content', 'author')}
+        for key in post_data:
+            if not post_data[key]:
+                messages.error(self.request, '{} 값이 존재하지 않습니다.'.format(key), extra_tags='danger')
+
+        if len(messages.get_messages(request)) == 0:
+            if action == 'create':
+                article = Article.objects.create(**post_data)
+                messages.success(self.request, '게시글이 저장되었습니다.')
+            elif action == 'update':
+                article = self.get_object()
+                for key, value in post_data.items():
+                    setattr(article, key, value)
+                article.save()
+                messages.success(self.request, '게시글이 저장되었습니다.')
+            else:
+                messages.error(self.request, '알 수 없는 요청입니다.', extra_tags='danger')
+
+            return HttpResponseRedirect('/article/') # 정상적인 저장이 완료되면 '/articles/'로 이동됨
+
+        ctx = {
+            'article': self.get_object() if action == 'update' else None
+        }
+        return self.render_to_response(ctx)
+```
 
 이제 기본적인 기능들은 완성되었습니다. 제네릭뷰도 다양하게 구현했다가 너무 많은 걸 설명하다보니 다 빼고 새로 `TemplateView`로만 구현하는 것을 변경했습니다. 모델과 템플릿에서도 좀 더 빙글빙글 꼬아서 여러 탬플릿태그들을 설명하고 싶었는데 ~~여러분의 수준을 고려하여~~ 미니튜토리얼이라 일단 여기에서 마무리하고 **사용자인증**, **페이지네이션** 등의 기능은 추후에 추가하기로 약속! ~~찡끗~~
 
