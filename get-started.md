@@ -7,11 +7,11 @@ sidebar:
   nav: docs-ko
 comment: true
 metadata:
-  'og:title': 장고(Django) 튜토리얼 시작하기
-  'og:type': article
-  'og:locale': 'ko_KR'
-  'og:description': 장고 웹프레임워크의 장점과 어떻게 개발을 시작할 수 있는 지 설명합니다.
-  'og:site_name': 장고(Django) 핥짝 맛보기
+  'og_title': 장고(Django) 튜토리얼 시작하기
+  'og_type': article
+  'og_locale': 'ko_KR'
+  'og_description': 장고 웹프레임워크의 장점과 어떻게 개발을 시작할 수 있는 지 설명합니다.
+  'og_site_name': 장고(Django) 핥짝 맛보기
 
 ---
 

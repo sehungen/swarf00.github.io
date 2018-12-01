@@ -6,11 +6,11 @@ aside:
 sidebar:
   nav: docs-ko
 metadata:
-  'og:title': 장고(Django) 템플릿 만들기
-  'og:type': article
-  'og:locale': 'ko_KR'
-  'og:description': 장고(Django) 웹프레임워크의 템플릿태그와 템플릿변수를 활용한 템플릿을 작성하는 방법을 설명합니다.
-  'og:site_name': 장고(Django) 핥짝 맛보기
+  'og_title': 장고(Django) 템플릿 만들기
+  'og_type': article
+  'og_locale': 'ko_KR'
+  'og_description': 장고(Django) 웹프레임워크의 템플릿태그와 템플릿변수를 활용한 템플릿을 작성하는 방법을 설명합니다.
+  'og_site_name': 장고(Django) 핥짝 맛보기
 ---
 
 ## 1. 템플릿 설계

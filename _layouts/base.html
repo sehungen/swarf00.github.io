@@ -15,6 +15,12 @@ layout: none
 
     {%- include analytics.html -%}
     {%- include head.html -%}
+    <meta property="og:url" content="{{ page.url }}">
+    <meta property="og:title" content="{{ page.metadata.og_title }}">
+    <meta property="og:description" content="{{ page.metadata.og_description }}">
+    <meta property="og:site_name" content="{{ page.metadata.og_site_name }}">
+    <meta property="og:type" content="{{ page.metadata.og_type }}">
+    <meta property="og:locale" content="{{ page.metadata.og_locale }}">
 
     <script>
       {%- include scripts/utils.js -%}
