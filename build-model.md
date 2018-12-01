@@ -5,6 +5,12 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+metadata:
+  'og:title': 장고(Django) 모델 정의하기
+  'og:type': article
+  'og:locale': 'ko_KR'
+  'og:description': 게시판이라는 앱의 기능을 미리 정의하고 모델 설계하는 방법을 설명합니다. 설계를 바탕으로 장고(Django) 웹프레임워크의 ORM을 통해 모델을 정의하고 활용하는 방법을 설명합니다.
+  'og:site_name': 장고(Django) 핥짝 맛보기
 ---
 
 ## 1. 모델 설계

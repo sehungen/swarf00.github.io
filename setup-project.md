@@ -5,6 +5,12 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+metadata:
+  'og:title': 장고(Django) 튜토리얼 프로젝트 만들기
+  'og:type': article
+  'og:locale': 'ko_KR'
+  'og:description': 장고(Django) 웹프레임워크의 프로젝트와 앱 생성하는 방법을 설명합니다. bbs라는 앱을 만들어 간단한 장고의 기능을 활용하는 방법을 배웁니다.
+  'og:site_name': 장고(Django) 핥짝 맛보기
 ---
 
 ## 1. 프로젝트 생성

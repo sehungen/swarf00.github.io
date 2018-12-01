@@ -5,6 +5,12 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+metadata:
+  'og:title': 장고(Django) 설치하기
+  'og:type': article
+  'og:locale': 'ko_KR'
+  'og:description': 장고(Django) 웹프레임워크 개발에 앞서 가상환경 세팅과 설치하는 방법을 설명합니다.
+  'og:site_name': 장고(Django) 핥짝 맛보기
 ---
 
 1. 파이썬3.6과 virtualenv가 설치되어 있는 것을 간주하고 설명합니다. 혹시 아직 설치가 되지 않았다면 아래 링크를 따라 설치하세요.

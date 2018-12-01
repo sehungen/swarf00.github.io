@@ -5,6 +5,12 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+metadata:
+  'og:title': 장고(Django) 뷰 정의하기
+  'og:type': article
+  'og:locale': 'ko_KR'
+  'og:description': 장고(Django) 웹프레임워크의 FBV와 CBV를 통해 뷰를 구현하는 방법을 설명합니다. CBV는 제네릭 뷰 중 가장 단순한 응용 구현체인 TemplateView를 통해 개발하는 방법을 설명합니다.
+  'og:site_name': 장고(Django) 핥짝 맛보기
 ---
 
 ## 1. 뷰 설계
