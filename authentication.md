@@ -6,11 +6,11 @@ aside:
 sidebar:
   nav: docs-ko
 metadata:
-  'og_title': 장고(Django) 사용자인증 활용하기
-  'og_type': article
-  'og_locale': 'ko_KR'
-  'og_description': 장고(Django) 웹프레임워크에서 기본 제공하는 auth 프레임워크를 이용하여 사용자인증을 구현하는 방법을 설명합니다.
-  'og_site_name': 장고(Django) 핥짝 맛보기
+  og_title: 장고(Django) 사용자인증 활용하기
+  og_type: article
+  og_locale: 'ko_KR'
+  og_description: 장고(Django) 웹프레임워크에서 기본 제공하는 auth 프레임워크를 이용하여 사용자인증을 구현하는 방법을 설명합니다.
+  og_site_name: 장고(Django) 핥짝 맛보기
 ---
 
 # 1. 사용자인증

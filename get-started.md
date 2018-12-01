@@ -7,11 +7,11 @@ sidebar:
   nav: docs-ko
 comment: true
 metadata:
-  'og_title': 장고(Django) 튜토리얼 시작하기
-  'og_type': article
-  'og_locale': 'ko_KR'
-  'og_description': 장고 웹프레임워크의 장점과 어떻게 개발을 시작할 수 있는 지 설명합니다.
-  'og_site_name': 장고(Django) 핥짝 맛보기
+  og_title: 장고(Django) 튜토리얼 시작하기
+  og_type: article
+  og_locale: 'ko_KR'
+  og_description: 장고 웹프레임워크의 장점과 어떻게 개발을 시작할 수 있는 지 설명합니다.
+  og_site_name: 장고(Django) 핥짝 맛보기
 
 ---
 
@@ -28,7 +28,7 @@ metadata:
 
 ### 다양한 기능
 
-사용자 인증, 데이터 관리 사이트, 사이트맵, RSS feed 등 흔히 웹 개발할 때 구현하는 많은 것들이 모두 내장되어 있습니다.
+사용자 인증, 데이터 관리 사이트, 사이트맵, RSS feed 등 흔히 웹 개발할 때 구현해야 할 많은 것들이 모두 내장되어 있습니다.
 
 
 ### 안정적인 보안
