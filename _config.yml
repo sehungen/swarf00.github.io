@@ -129,7 +129,7 @@ comments:
     enable: true
     clientID    : c48d9e905878da8f5f12 # GitHub Application Client ID
     clientSecret: fbe0ebdcec602e2d615d61ca033c6b0473b26d4a # GitHub Application Client Secret
-    repository  : github.com/swarf00/swarf00.github.io# GitHub repo
+    repository  : github.com/swarf00/swarf00.github.io # GitHub repo
     owner       : swarf00 # GitHub repo owner
     admin: swarf00 # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       # - your GitHub Id
