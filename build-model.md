@@ -1,6 +1,7 @@
 ---
 layout: article
 title: 모델 만들기
+key: django-build-model
 aside:
   toc: true
 sidebar:

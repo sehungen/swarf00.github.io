@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 목차
+key: install
 aside:
   toc: false
 sidebar:

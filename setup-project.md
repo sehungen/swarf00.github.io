@@ -1,6 +1,7 @@
 ---
 layout: article
 title: 프로젝트 만들기
+key: django-setup-project
 aside:
   toc: true
 sidebar:
@@ -102,7 +103,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
-urls.py는 url과 핸들러를 연결해주는 설정파일입니다.urlpatterns라는 리스트 객체에 path함수의 결과값을 넣어주면 됩니다. 
+urls.py는 url과 핸들러를 연결해주는 설정파일입니다. 흔히 `url 라우터`라고 부릅니다. url을 통해 사용자의 요청이 어느 핸들러로 전달되어야 하는지를 결정하기 때문입니다. `urlpatterns`라는 리스트 객체에 `path`함수의 결과값을 넣어주면 됩니다. 
 
 `hello/` 경로에 handler를 연결했기 때문에 장고 서버를 재시작하고(`./manage.py runserver`) 브라우저에서 `http://127.0.0.1:8000/hello/` 로 접속하면 `Hello world.`가 출력되는 것을 확인할 수 있습니다.
 

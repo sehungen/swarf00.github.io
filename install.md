@@ -1,6 +1,7 @@
 ---
 layout: article
 title: 설치하기
+key: django-install
 aside:
   toc: true
 sidebar:

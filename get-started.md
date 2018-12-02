@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Get Started
+key: django-get-started
 aside:
   toc: true
 sidebar:

@@ -1,6 +1,7 @@
 ---
 layout: article
 title: 뷰 만들기
+key: django-build-view
 aside:
   toc: true
 sidebar:

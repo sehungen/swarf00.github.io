@@ -1,6 +1,7 @@
 ---
 layout: article
 title: 템플릿 만들기
+key: django-build-template
 aside:
   toc: true
 sidebar:
