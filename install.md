@@ -6,6 +6,7 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+tags: 장고 Django 설치
 metadata:
   og_title: 장고(Django) 설치하기
   og_type: article

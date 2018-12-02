@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: home
 title: 목차
 key: install
 aside:

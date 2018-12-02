@@ -6,6 +6,7 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+tags: 장고 Django 템플릿
 metadata:
   og_title: 장고(Django) 템플릿 만들기
   og_type: article

@@ -6,6 +6,7 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+tags: 장고 Django 모델
 metadata:
   og_title: 장고(Django) 모델 정의하기
   og_type: article
