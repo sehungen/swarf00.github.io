@@ -6,6 +6,7 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+pageview: true
 tags: 장고 Django 뷰
 metadata:
   og_title: 장고(Django) 뷰 정의하기

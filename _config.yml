@@ -195,7 +195,7 @@ defaults:
       aside:
         toc: true
       show_edit_on_github: true
-      pageview: true
+    pageview: true
 
 
 ## => Plugins

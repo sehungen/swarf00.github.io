@@ -6,7 +6,7 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
-comment: true
+pageview: true
 tags: 장고 Django 시작하기
 metadata:
   og_title: 장고(Django) 튜토리얼 시작하기

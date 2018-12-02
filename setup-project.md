@@ -6,6 +6,7 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+pageview: true
 tags: 장고 Django 프로젝트만들기
 metadata:
   og_title: 장고(Django) 튜토리얼 프로젝트 만들기

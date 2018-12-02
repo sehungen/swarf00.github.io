@@ -1,8 +1,6 @@
 {%- include snippets/assign.html target=site.data.variables.default.pageview source0=page.pageview -%}
 {%- assign _pageview = __return -%}
 
-<div>{{ page.layout }}</div>
-<div>{{ _pageview }}</div>
 
 {%- if page.layout == "home" -%}
 
@@ -21,7 +19,6 @@
     {%- if jekyll.environment != "development" and
       jekyll.environment != "beta" -%}
       {%- if site.pageview.provider == 'leancloud' -%}
-        <div>{{ site.pageview.provider }}</div>
         {%- include pageview-providers/leancloud/post.html -%}
       {%- elsif site.pageview.provider == 'custom' -%}
         {%- include pageview-providers/custom/post.html -%}
