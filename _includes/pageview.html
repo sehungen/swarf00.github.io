@@ -1,6 +1,8 @@
 {%- include snippets/assign.html target=site.data.variables.default.pageview source0=page.pageview -%}
 {%- assign _pageview = __return -%}
 
+<div>{{ page.layout }}</div>
+<div>{{ _pageview }}</div>
 
 {%- if page.layout == "home" -%}
 
