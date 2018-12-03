@@ -6,6 +6,8 @@ aside:
   toc: true
 sidebar:
   nav: docs-ko
+pageview: true
+tags: 장고 Django 인증 가입 로그인 로그아웃
 metadata:
   og_title: 장고(Django) 사용자인증 활용하기
   'og_type': article
@@ -178,7 +180,88 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'                     # email을 사용자의 식별자로 설정
     REQUIRED_FIELD = 'name'                      # username
 ```
-새로운 사용자 모델을 구현할 때 objects라고 부르는 매니저를 새로 구현해야 할 때도 있습니다. 기본 Manager만
+모델을 추가한 뒤 user 앱을 등록합니다.
+```pyhon
+# minitutorial/settings.py
+
+# 생략
+
+INSTALLED_APPS = [
+    'bbs',
+    'user',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+# 생략
+```
+이제 makemigrations 커맨드로 마이그레이션 파일을 생성합니다.
+```bash
+(test-venv-36) $ ./manage.py makemigrations
+Traceback (most recent call last):
+  File "./manage.py", line 15, in <module>
+    execute_from_command_line(sys.argv)
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/core/management/__init__.py", line 381, in execute_from_command_line
+    utility.execute()
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/core/management/__init__.py", line 375, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/core/management/base.py", line 316, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/core/management/base.py", line 353, in execute
+    output = self.handle(*args, **options)
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/core/management/base.py", line 83, in wrapped
+    res = handle_func(*args, **kwargs)
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/core/management/commands/makemigrations.py", line 144, in handle
+    ProjectState.from_apps(apps),
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/db/migrations/state.py", line 222, in from_apps
+    model_state = ModelState.from_model(model)
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/db/migrations/state.py", line 411, in from_model
+    fields.append((name, field.clone()))
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 493, in clone
+    name, path, args, kwargs = self.deconstruct()
+  File "/Users/sehunkim/test-venv-36/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 1209, in deconstruct
+    del kwargs['editable']
+KeyError: 'editable'
+```
+오류가 발생하는데 Article 모델의 created_at 필드의 속성을 강제로 editable로 변경해서 생긴 문제입니다. admin 페이지에서 보기위해 추가했던 건데 이제 필요없으니 우선 주석표시를 해둡니다.
+
+```python
+# bbs/models.py
+
+from django.db import models
+
+
+class Article(models.Model):
+    title      = models.CharField('제목', max_length=126, null=False)
+    content    = models.TextField('내용', null=False)
+    author     = models.CharField('작성자', max_length=16, null=False)
+    created_at = models.DateTimeField('작성일', auto_now_add=True)
+    # created_at.editable = True
+
+    def __str__(self):
+        return '[{}] {}'.format(self.id, self.title)
+```
+다시 makemigration 커맨드를 실행하면 정상적으로 마이그레이션 파일이 생성이 됩니다. migrate 커맨드까지 이어서 실행하면 마이그레이션이 완료됩니다.
+```bash
+(test-venv-36) $ ./manage.py makemigrations
+Migrations for 'user':
+  user/migrations/0001_initial.py
+    - Create model User
+(test-venv-36) $ ./manage.py migrate
+Migrations for 'user':
+  user/migrations/0001_initial.py
+    - Create model User
+(test-venv-36) SEHUNui-MacBook-Pro:minitutorial sehunkim$ ./manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, user
+Running migrations:
+  Applying user.0001_initial... OK
+```
+
 
 ### 로그인
 

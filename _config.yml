@@ -144,7 +144,7 @@ pageview:
   leancloud:
     app_id    : YVRMlnD4JfgX9amFNdenzoXw-gzGzoHsz # LeanCloud App id
     app_key   : oS4RvCt8gKa5FuPtdAIDQhO3 # LeanCloud App key
-    app_class : 0x0CKT7du6V2ze892kn9S3qj # LeanCloud App class
+    app_class : swarf00.github.io # LeanCloud App class
 
 
 ## => Analytics
