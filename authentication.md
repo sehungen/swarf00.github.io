@@ -7,7 +7,7 @@ aside:
 sidebar:
   nav: docs-ko
 pageview: true
-tags: 장고 Django 인증 가입 로그인 로그아웃
+tags: 장고 Django auth 인증 가입 로그인 로그아웃
 metadata:
   og_title: 장고(Django) 사용자인증 활용하기
   'og_type': article
