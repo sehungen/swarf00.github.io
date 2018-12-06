@@ -724,6 +724,7 @@ class UserRegistrationView(CreateView):
 이렇게 해도 거의 완벽한데 label 값이 영어라서 참 많이 애석합니다. `email` 과 `name` 부분은 모델에서 수정하면 되는데, `password1`과 `password2`는 `UserCreationForm` 에 정의되어 있는 부분이어서 override 해줘야 합니다. 그런데 유심히 모델과 폼의 label에 해당하는 값들을 보시면 `_('msgid')` 형식으로 선언되어 있을 겁니다. 예를 들어 모델에서 `email` 필드를 보시면 `_('email address')`로 선언되어 있습니다. 이 `_`라는 함수는 `ugettext_lazy` 함수의 별칭(별명) 입니다. 이 함수는 **언어설정에 따라 출력되는 문자열을 변환해**주는 함수입니다. 설정파일의 `LANGUAGE_CODE` 만 변경시켜주면 장고에서 미리 번역해둔 문자열들로 치환되어 출력됩니다.
 
 > 다국어 설정은 아무런 문자나 자동으로 변환(번역)이 되는 것이 아니라 번역파일에 미리 정의 해놓은 문자들만 변환이 됩니다. msgid에 대응하는 문자들을 언어별로 작성해야 합니다. ./manage.py 유틸리티의 `makemessages` 커맨드는 프로젝트내의 `ugettext_lazy` 함수의 인자들을 검색 후 언어별로 번역파일을 생성합니다. 번역파일에 해당 msgid 에 대응하는 msgstr 을 정의해주면 번역파일이 생성이 되고, 번역단어가 많고 여러 언어로 설정할 경우 검색하는 시간이 오래 걸려 전체적으로 서비스의 속도가 굉장히 저하됩니다. 그렇기 때문에 장고에서 읽기 편하게 미리 컴파일을 해둬야 하는데 이것이 ./manage.py 유틸리티의 `compilemessages` 커맨드입니다. 다국어 설정은 ~~인싸가 되기 위해~~ 중요하지만 여기서 길게 설명하지 않으니 더 자세한 설명은 [공식문서](https://docs.djangoproject.com/en/2.1/topics/i18n/translation/)를 참고하시기 바랍니다.
+
 ```python
 # minitutorial/settings.py
 
