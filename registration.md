@@ -731,7 +731,6 @@ class UserRegistrationView(CreateView):
 # 생략
 
 LANGUAGE_CODE = 'ko-KR'
-
 TIME_ZONE = 'Asia/Seoul'
 
 # 생략
