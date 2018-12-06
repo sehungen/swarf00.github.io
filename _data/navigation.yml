@@ -1,8 +1,8 @@
 header:
   - titles:
-      en:       minitutorial
-      ko:       맛보기
-    url:        /setup-project.html
+      en:      minitutorial
+      ko:      맛보기
+    url:       /setup-project.html
 
 docs-ko:
   - title:     프로젝트 개발에 앞서...
@@ -11,7 +11,7 @@ docs-ko:
         url:   /get-started.html
       - title: 설치하기
         url:   /install.html
-  - title:      Mini tutorial
+  - title:     Mini tutorial
     children:
       - title: 프로젝트 만들기
         url:   /setup-project.html
@@ -21,5 +21,9 @@ docs-ko:
         url:   /build-view.html
       - title: Template 만들기
         url:   /build-template.html
+  - title:     사용자 인증
+    children:
+      - title: 가입하기
+        url:   /registration.html
 sidebar:
   nav: docs-ko

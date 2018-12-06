@@ -97,7 +97,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',  # html, css, js 파일등의 정적파일 들을 관리해주는 프레임워크
 ]
 # 생략
-LANGUAGE_CODE = 'ko-kr'  # 장고 기본언어 변경
 
 TIME_ZONE = 'Asia/Seoul' # 시간대를 서울로 변경
 
