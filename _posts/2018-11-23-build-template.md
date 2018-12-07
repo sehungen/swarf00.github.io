@@ -7,7 +7,7 @@ aside:
 sidebar:
   nav: docs-ko
 pageview: true
-tags: 장고 Django 템플릿
+tags: 장고 Django 템플릿 템플릿태그 템플릿필터 messages
 metadata:
   og_title: 장고(Django) 템플릿 만들기
   og_type: article

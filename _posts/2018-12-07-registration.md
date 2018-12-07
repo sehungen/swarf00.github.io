@@ -7,7 +7,7 @@ aside:
 sidebar:
   nav: docs-ko
 pageview: true
-tags: 장고 Django auth 인증 가입 CreateView 모델폼 ModelForm
+tags: 장고 Django auth 인증 가입 CreateView 모델폼 ModelForm 한글화 i18n as_p sqlite3 index unique_together
 metadata:
   og_title: 장고(Django) 사용자인증 제 1 편
   og_type: article

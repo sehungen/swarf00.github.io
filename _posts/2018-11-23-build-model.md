@@ -7,7 +7,7 @@ aside:
 sidebar:
   nav: docs-ko
 pageview: true
-tags: 장고 Django 모델
+tags: 장고 Django 모델 CharFiled DateTimeField admin
 metadata:
   og_title: 장고(Django) 모델 정의하기
   og_type: article

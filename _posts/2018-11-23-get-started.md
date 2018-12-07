@@ -7,7 +7,7 @@ aside:
 sidebar:
   nav: docs-ko
 pageview: true
-tags: 장고 Django 시작하기
+tags: 장고 Django 시작하기 장점
 metadata:
   og_title: 장고(Django) 튜토리얼 시작하기
   og_type: article
