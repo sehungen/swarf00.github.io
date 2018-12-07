@@ -46,7 +46,7 @@ metadata:
     view: {{ view }} <!-- ctx['view'] -->
     <br>
     data: {{ data }}  <!-- ctx['data'] -->
-    {% endblock %}
+    {% endblock content %}
     </body>
 </html>
 {% endraw %}
@@ -78,13 +78,13 @@ metadata:
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 목록</title>{% endblock %}
+{% block title %}<title>게시글 목록</title>{% endblock title %}
 
 {% block content %}
 view: {{ view }}
 <br>
 data: {{ data }}
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 article_list.html 템플릿은 extends의 인자인 'base.html' 파일을 상속받습니다. **템플릿에서 상속이란 기본 뼈대를 부모 템플릿으로 두고 각 block을 오버라이드 한다는 의미**입니다. python의 클래스 상속과 마찬가지로 부모템플릿의 내용을 인용하고 싶다면 {% raw %}`{{ block.super }}`{% endraw %} 변수를 사용하면 됩니다. 
@@ -115,7 +115,7 @@ class ArticleListView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 목록</title>{% endblock %}
+{% block title %}<title>게시글 목록</title>{% endblock title %}
 
 {% block content %}
 <table>
@@ -134,7 +134,7 @@ class ArticleListView(TemplateView):
         </tr>
     </tbody>
 </table>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 이런식으로 테이블로 표현할 것입니다. 아직은 실제 데이터를 넣지 않고 가짜데이터로 틀만 만들어봤습니다. 우선 `table` 태그를 간단히 살펴보겠습니다. 들여쓰기로 구분하여 보시면 좋습니다.
@@ -149,7 +149,7 @@ class ArticleListView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 목록</title>{% endblock %}
+{% block title %}<title>게시글 목록</title>{% endblock title %}
 
 {% block content %}
 <table>
@@ -164,7 +164,7 @@ class ArticleListView(TemplateView):
         {% endfor %}                          <! -- for tag 종료 -->
     </tbody>
 </table>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 {% raw %}
@@ -195,7 +195,7 @@ class ArticleListView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 목록</title>{% endblock %}
+{% block title %}<title>게시글 목록</title>{% endblock title %}
 
 {% block content %}
 <table>
@@ -210,7 +210,7 @@ class ArticleListView(TemplateView):
         {% endfor %}
     </tbody>
 </table>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 
@@ -226,7 +226,7 @@ class ArticleListView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 목록</title>{% endblock %}
+{% block title %}<title>게시글 목록</title>{% endblock title %}
 
 {% block css %}                                    <!-- bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -245,7 +245,7 @@ class ArticleListView(TemplateView):
         {% endfor %}
     </tbody>
 </table>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 
@@ -259,7 +259,7 @@ class ArticleListView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 목록</title>{% endblock %}
+{% block title %}<title>게시글 목록</title>{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -284,7 +284,7 @@ class ArticleListView(TemplateView):
 
 <!-- 버튼 click 시 url 이동 -->
 <a href="/article/create/"><button class="btn btn-primary" type="button">새 게시글 작성</button></a>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 
@@ -301,7 +301,7 @@ class ArticleListView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock %}
+{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -332,7 +332,7 @@ class ArticleListView(TemplateView):
 </table>
 
 <a href="/article/{{ article.pk }}/update/"><button class="btn btn-primary" type="button">게시글 수정</button></a>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 게시글 목록 화면과 같이 뷰도 수정해줍니다.
@@ -384,7 +384,7 @@ class ArticleDetailView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock %}
+{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -415,7 +415,7 @@ class ArticleDetailView(TemplateView):
 </table>
 
 <a href="/article/{{ article.pk }}/update/"><button class="btn btn-primary" type="button">게시글 수정</button></a>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 
@@ -429,7 +429,7 @@ class ArticleDetailView(TemplateView):
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock %}
+{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -465,7 +465,7 @@ class ArticleDetailView(TemplateView):
 
 <button class="btn btn-primary" type="submit">게시글 저장</button>
 </form>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 테이블과 버튼을 form 태그로 감싸서 테이블 안의 input, textarea의 데이터들을 전송할 수 있게 했습니다. form 태그부터 속성을 살펴보면, action은 update 액선의 url을 지정했고, method는 post를 지정했습니다. class를 form-horizontal로 지정했는데 html 엘리먼트가 수평으로 잘 정리되도록 하는 bootstrap 속성입니다.
@@ -560,7 +560,7 @@ messages 프레임워크는 뷰에서 사용하는 방법이 간단합니다. me
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock %}
+{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -578,7 +578,7 @@ messages 프레임워크는 뷰에서 사용하는 방법이 간단합니다. me
   
 <!-- 생략 -->
 
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 if 템플릿 태그로 `messages` 객체가 있는지 확인합니다. `if` 태그는 반드시 `endif` 태그로 종료되어야 한다는 것 주의하셔야 합니다. `messages` 객체는 `iterable` 객체이기 때문에 `for-in` 루프로 반복출력해야 합니다. `for-in` 루프처럼 `iterate`를 진행해야 메시지가 사용된 것으로 변경됩니다. message 그 자체를 출력해도 되고 message.tags 또는 message.level를 이용하셔도 됩니다. message.level은 message를 저장할 때 사용하는 그 레벨이 출력이 되고, **`tags`는 `extra_tags`와 message.level의 조합**입니다. 이 예제에서는 message.tags를 이용했는데 extra_tags를 전달하지 않았기 때문에 level값만 출력이 됩니다. bootstrap의 alert class 를 사용하면 쉽게 강조표시를 할 수 있습니다. `alert-success`, `alert-info`, `alert-warning`, `alert-danger` 등에 따라 색상이 달라지기 때문에 message의 레벨을 적절히 조합하면 손쉽게 일관성있는 강조 표시를 할 수 있습니다. messages 에는 `danger`라는 레벨이 없기 때문에 `error`라는 레벨의 함수에는 `extra_tags`를 이용해서 `error`를 추가해줬습니다. 그러면 message.tags 는 `'danger error'`를 출력합니다.
@@ -616,10 +616,10 @@ if 템플릿 태그로 `messages` 객체가 있는지 확인합니다. `if` 태�
             </div>
         </div>
     </nav>
-    {% endblock%}
+    {% endblock header %}
     
     {% block content %}
-    {% endblock %}
+    {% endblock content %}
     </body>
 </html>
 {% endraw %}
@@ -636,7 +636,7 @@ if 템플릿 태그로 `messages` 객체가 있는지 확인합니다. `if` 태�
 {% raw %}
 {% extends 'base.html' %}
 
-{% block title %}<title>게시글 수정 - {{ article.pk }}. {{ article.title }}</title>{% endblock %}
+{% block title %}<title>게시글 수정 - {{ article.pk }}. {{ article.title }}</title>{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -680,7 +680,7 @@ if 템플릿 태그로 `messages` 객체가 있는지 확인합니다. `if` 태�
 
 <button class="btn btn-primary" type="submit">게시글 저장</button>
 </form>
-{% endblock %}
+{% endblock content %}
 {% endraw %}
 ```
 upate는 url에 article.pk 값이 포함되기 때문에 아직 객체가 생성되지 않은 create 액션은 사용할 수 없는 url입니다. 그래서 현재 url을 의미하는 .을 이용했습니다. 어차피 post나 get이나 모두 같은 뷰에서 처리하니 url이 같아도 상관없습니다.
