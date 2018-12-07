@@ -12,7 +12,7 @@ metadata:
   og_title: 장고(Django) 사용자인증 제 1 편
   og_type: article
   og_locale: ko_KR
-  og_description: 장고(Django) 웹프레임워크에서 기본 제공하는 auth 프레임워크를 이용하여 사용자인증을 구현하는 방법을 설명합니다. 또한 모델폼을 이용하여 쉽게 템플릿을 구현하는 방법을 알아봅니다.
+  og_description: 장고(Django) 웹프레임워크에서 기본 제공하는 auth 프레임워크를 이용하여 사용자가입을 구현하는 방법을 설명합니다. 또한 모델폼을 이용하여 쉽게 템플릿을 구현하는 방법을 알아봅니다.
   og_site_name: 장고(Django) 핥짝 맛보기
 ---
 
@@ -863,7 +863,7 @@ class UserRegistrationView(CreateView):
             {% for field in form %}
                 <div class="form-group {% if field.errors|length > 0 %}has-error{%endif %}">
                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    <input name="{{ field.html_name }}" id="{{ field.id_for_lable }}" class="form-control" value="{{ field.value }}">
+                    <input name="{{ field.html_name }}" id="{{ field.id_for_lable }}" class="form-control" value="{{ field.value|default_if_none:'' }}">
                     {% for error in field.errors %}
                         <label class="control-label" for="{{ field.id_for_label }}">{{ error }}</label>
                     {% endfor %}
