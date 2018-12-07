@@ -232,7 +232,7 @@ class Article(models.Model):
     def __str__(self):
         return '[{}] {}'.format(self.id, self.title)
 ```
-다시 makemigration 커맨드를 실행하면 정상적으로 마이그레이션 파일이 생성이 됩니다. migrate 커맨드까지 이어서 실행하면 마이그레이션이 완료됩니다.
+다시 `makemigration` 커맨드를 실행하면 정상적으로 마이그레이션 파일이 생성이 됩니다. `migrate` 커맨드까지 이어서 실행하면 마이그레이션이 완료됩니다.
 ```bash
 (test-venv-36) $ ./manage.py makemigrations
 Migrations for 'user':
@@ -318,7 +318,7 @@ Traceback (most recent call last):
     self.UserModel._default_manager.db_manager(database).create_superuser(**user_data)
 TypeError: create_superuser() missing 1 required positional argument: 'username'
 ```
-새로운 사용자모델에서 슈퍼유저를 생성하는 메소드에 `username` 이라는 필드가 필수로 설정되어 있다고 하는군요. auth 프레임워크에서 사용하던 매니저 코드를 살펴보니 살짝만 수정해주면 될 것 같습니다. 모든 사용자 생성 메소드에 `username` 필드가 필수로 정의되어 있는데 `username` 파라미터는 사용하지 않으니 삭제하면 됩니다.
+새로운 사용자모델에서 슈퍼유저를 생성하는 메소드에 `username` 이라는 필드가 필수로 설정되어 있다고 하는군요. `auth` 프레임워크에서 사용하던 매니저 코드를 살펴보니 살짝만 수정해주면 될 것 같습니다. 모든 사용자 생성 메소드에 `username` 필드가 필수로 정의되어 있는데 `username` 파라미터는 사용하지 않으니 삭제하면 됩니다.
 ```python
 # user/models.py
 
