@@ -6,8 +6,7 @@ aside:
   toc: false
 sidebar:
   nav: docs-ko
-pagination:
-  enabled: false
+preview: true
 metadata:
   og_title: 장고(Django) 튜토리얼 목차
   og_type: article
