@@ -17,12 +17,12 @@ metadata:
 ---
 
 ### Quick Start
-[시작하기]({{ site.url }}/get-started.html)
+[시작하기]({{ site.url }}/2018/11/23/get-started.html)
 
 ### Mini tutorial
-[핥짝핥짝]({{ site.url }}/setup-project.html)
+[핥짝핥짝]({{ site.url }}/2018/11/23/setup-project.html)
 
 [github](https://github.com/swarf00/minitutorial.git)
 
 ### Mini tutorial++
-[사용자인증]({{ site.url }}/registration.html)
+[사용자인증]({{ site.url }}/2018/12/07registration.html)
