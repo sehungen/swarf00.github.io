@@ -1,7 +1,7 @@
 ---
 layout: home
 title: 목차
-key: install
+key: table-of-contents
 aside:
   toc: false
 sidebar:
@@ -21,7 +21,7 @@ metadata:
 ### Mini tutorial
 [핥짝핥짝]({{ site.url }}/2018/11/23/setup-project.html)
 
-[github](https://github.com/swarf00/minitutorial.git)
+[github](https://github.com/swarf00/minitutorial.git) tag - v0.1
 
 ### Mini tutorial++
-[사용자인증]({{ site.url }}/2018/12/07registration.html)
+[사용자인증]({{ site.url }}/2018/12/07registration.html) tag - v0.2
