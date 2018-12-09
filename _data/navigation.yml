@@ -29,5 +29,7 @@ docs-ko:
     children:
       - title: 가입하기
         url:   /2018/12/07/registration.html
+      - title: 로그인하기
+        url:   /2018/12/10/login.html
 sidebar:
   nav: docs-ko
