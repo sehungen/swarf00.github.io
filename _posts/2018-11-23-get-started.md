@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Get Started
+excerpt: 장고 웹프레임워크의 장점과 어떻게 개발을 시작할 수 있는 지 설명합니다.
 key: django-get-started
 aside:
   toc: true

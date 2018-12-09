@@ -1,6 +1,7 @@
 ---
 layout: article
 title: 뷰 만들기
+excerpt: 장고(Django) 웹프레임워크의 FBV와 CBV를 통해 뷰를 구현하는 방법을 설명합니다. CBV는 제네릭 뷰 중 가장 단순한 구현체인 TemplateView를 통해 개발하는 방법을 설명합니다.
 key: django-build-view
 aside:
   toc: true
@@ -12,7 +13,7 @@ metadata:
   og_title: 장고(Django) 뷰 정의하기
   og_type: article
   og_locale: 'ko_KR'
-  og_description: 장고(Django) 웹프레임워크의 FBV와 CBV를 통해 뷰를 구현하는 방법을 설명합니다. CBV는 제네릭 뷰 중 가장 단순한 응용 구현체인 TemplateView를 통해 개발하는 방법을 설명합니다.
+  og_description: 장고(Django) 웹프레임워크의 FBV와 CBV를 통해 뷰를 구현하는 방법을 설명합니다. CBV는 제네릭 뷰 중 가장 단순한 구현체인 TemplateView를 통해 개발하는 방법을 설명합니다.
   og_site_name: 장고(Django) 핥짝 맛보기
 ---
 

@@ -1,13 +1,14 @@
 ---
 layout: article
 title: 템플릿 만들기
+excerpt: 장고(Django) 웹프레임워크의 템플릿태그와 템플릿변수를 활용한 템플릿을 작성하는 방법을 설명합니다.
 key: django-build-template
 aside:
   toc: true
 sidebar:
   nav: docs-ko
 pageview: true
-tags: 장고 Django 템플릿 템플릿태그 템플릿필터 messages
+tags: 장고 Django 템플릿 템플릿태그 템플릿필터 messages extends
 metadata:
   og_title: 장고(Django) 템플릿 만들기
   og_type: article
