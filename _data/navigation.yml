@@ -31,5 +31,7 @@ docs-ko:
         url:   /2018/12/07/registration.html
       - title: 로그인하기
         url:   /2018/12/10/login.html
+      - title: 이메일인증, 로그아웃
+        url:   /2018/12/14/logout.html
 sidebar:
   nav: docs-ko
