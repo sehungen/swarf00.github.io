@@ -10,7 +10,7 @@ sidebar:
 mermaid: true
 pageview: true
 date: 2018/12/17
-tags: 장고 Django 템플릿 리팩토링 
+tags: 장고 Django 템플릿 리팩토링 static collectstatic findstatic include Last-Modified If-Modified-Since
 metadata:
   og_title: 장고(Django) 템플릿 리팩토링
   og_type: article
