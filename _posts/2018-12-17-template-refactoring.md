@@ -307,9 +307,6 @@ user 앱에서 각 템플릿들의 공통된 부분들을 따로 분리하는데
 {% block css %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static '/css/user.css' %}">
-<style>
-    .link-below-button { margin-top: 10px; text-align: right;}
-</style>
 {% endblock css %}
 
 {% block content %}
