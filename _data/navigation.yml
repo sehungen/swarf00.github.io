@@ -35,5 +35,7 @@ docs-ko:
         url:   /2018/12/14/logout.html
       - title: (번외) 템플릿 리팩토링
         url:   /2018/12/17/template-refactoring.html
+      - title: 소셜 로그인
+        url:   /2018/12/19/social-login.html
 sidebar:
   nav: docs-ko
