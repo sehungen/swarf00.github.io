@@ -132,6 +132,23 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _('users')
         abstract = True
 
+    def get_full_name(self):
+        """
+        Returns the first_name plus the last_name, with a space in between.
+        """
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
+
+    def get_short_name(self):
+        "Returns the short name for the user."
+        return self.first_name
+
+    def email_user(self, subject, message, from_email=None, **kwargs):
+        """
+        Sends an email to this User.
+        """
+        send_mail(subject, message, from_email, [self.email], **kwargs)
+
 class User(AbstractUser):
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
@@ -180,6 +197,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     USERNAME_FIELD = 'email'                     # email을 사용자의 식별자로 설정
     REQUIRED_FIELDS = ['name']                   # 필수입력값
+
+    class Meta:
+        verbose_name = _('user')
+        verbose_name_plural = _('users')
+        swappable = 'AUTH_USER_MODEL'
+
+    def email_user(self, subject, message, from_email=None, **kwargs): # 이메일 발송 메소드
+        send_mail(subject, message, from_email, [self.email], **kwargs)
 ```
 모델을 추가한 뒤 `user` 앱을 등록합니다. 한가지 더 세팅해줘야 할 것이 있는데 사용자 모델은 여러 앱들에서 참조하고 있는데 장고에서는 **커스터마이징 될 것을 대비해서 `AUTH_USER_MODEL` 이라는 설정으로 현재 사용자 모델이 무엇인지 설정**할 수 있도록 했습니다. 물론 우리가 만들 앱에서도 이 설정을 참조해서 사용자 모델을 사용할 것입니다.
 ```python
