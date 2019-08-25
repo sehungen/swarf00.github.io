@@ -395,7 +395,7 @@ class ArticleCreateUpdateView(TemplateView):
                 raise Http404('no data for {}'.format(key))
 
         if action == 'create':                        # action이 create일 경우
-            article = Article.objects.create(title=title, title=content, title=author)
+            article = Article.objects.create(title=title, content=content, title=author)
         elif action == 'update':                      # action이 update일 경우
             article = self.get_object()
             if not article:
