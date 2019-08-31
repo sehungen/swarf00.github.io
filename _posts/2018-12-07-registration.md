@@ -177,13 +177,14 @@ class User(AbstractUser):
 생성시키면 `bbs` 앱과 같이 `user` 디렉토리와 파일들이 생성될 것입니다. 먼저 `AbstractUser` 모델을 참고해서 새로운 `User` 모델을 정의합니다.
 
 ```python
-# bbs/models.py
+# user/models.py
 
 from django.contrib.auth.models import (
     AbstractBaseUser, PermissionsMixin, UserManager
 )
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 
 class User(AbstractBaseUser, PermissionsMixin):
