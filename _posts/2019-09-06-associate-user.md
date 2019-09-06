@@ -107,7 +107,7 @@ Running migrations:
 django.db.utils.IntegrityError: The row in table 'bbs_article' with primary key '1' has an invalid foreign key: bbs_article.author_id contains a value 'swarf00' that does not have a corresponding value in user_user.id.
 ```
 
-이제는 익숙하시겠죠. 역시나 오류가 발생합니다. 침착하게 오류메시지를 살펴봅니다. ForeignKey로 참조하는 User 모델의 필드가 User.id(int) 인데 ForeignKey 에 저장된 값이 swarf00(str) 이라 무결성이 맞지 않아 마이그레이션이 되지 않는다고 합니다. ForeignKey 필드로 설정된 필드에 이미 문자열 데이터가 들어가 있으니 User 모델의 id 의 자료형이 맞지 않아 오류가 발생하는 겁니다. 이럴 때 깨끗이 데이터를 날리고 시작하면 깔끔하고 편한데 실무에서는 책상도 깨끗하게 날라가는 겁니다.(데이터베이스 작업을 할 때는 꼭 백업을 해둡시다)
+이제는 익숙하시겠죠. 역시나 오류가 발생합니다. 침착하게 오류메시지를 살펴봅니다. ForeignKey로 참조하는 User 모델의 필드가 `User.id`(int) 인데 ForeignKey 에 저장된 값이 swarf00(str) 이라 무결성이 맞지 않아 마이그레이션이 되지 않는다고 합니다. ForeignKey 필드로 설정된 필드에 이미 문자열 데이터가 들어가 있으니 User 모델의 `id` 의 자료형이 맞지 않아 오류가 발생하는 겁니다. 이럴 때 깨끗이 데이터를 날리고 시작하면 깔끔하고 편한데 실무에서는 책상도 깨끗하게 날라가는 겁니다.(데이터베이스 작업을 할 때는 꼭 백업을 해둡시다)
 
 일단 데이터베이스가 변경되었는지 오류로 인해 롤백이 되었는 지 확인해봅니다.
 ```sql
