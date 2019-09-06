@@ -38,6 +38,6 @@ docs-ko:
       - title: 소셜 로그인
         url:   /2018/12/19/social-login.html
       - title: 게시글 사용자 연동
-        url:   /2019/09/06/write-by-login.html
+        url:   /2019/09/06/associate-user.html
 sidebar:
   nav: docs-ko

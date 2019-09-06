@@ -10,9 +10,9 @@ sidebar:
 mermaid: true
 pageview: true
 date: 2019/09/06
-tags: 장고 Django auth 간편로그인 소셜로그인 oauth naver kakao 네이버 네아로 django-allauth 인증백엔드 login authenticate ModelBackend 싱글턴 singleton requests
+tags: 장고 Django 인증 ForeignKey
 metadata:
-  og_title: 장고(Django) 사용자인증 제 5 편
+  og_title: 장고(Django) 게시글 사용자 연동
   og_type: article
   og_locale: ko_KR
   og_description: 장고ORM 의 ForeignKey 사용법을 배워봅니다.
