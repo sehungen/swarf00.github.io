@@ -121,7 +121,7 @@ sqlite> pragma table_info(bbs_article);
 
 일단 author 필드가 author_id 필드로 변경되었고 자료형이 integer로 변경된 것이 확인됩니다. ForeignKey 필드 이름로 author 를 사용했는데 실제 데이터베이스에 `author_id` 로 필드명이 변경된 이유는 ForeignKey 필드의 또다른 속성 `to_field` 값을 설정하지 않아 기본값인 참조하는 모델의 pk 필드인 id로 설정이 된 것 입니다. 잘 사용하지 않는 속성이니 대충 넘어갑니다.
 
-어쨋든 데이터베이스가 잘 마이그레이션되었으니 `author_id` 의 값에 적절한 값을 넣어 수정합니다. 강제로 `user_id` 에 1을 설정하도록 하겠습니다.
+어쨋든 데이터베이스가 잘 마이그레이션되었으니 `author_id` 의 값에 적절한 값을 넣어 수정합니다. 강제로 `user_id` 에 1을 설정하도록 하겠습니다. 1이 아니라 User 테이블에 있는 어떠한 id 값이라도 상관없습니다.
 ```sql
 sqlite> update bbs_article set author_id = 1;
 ```
