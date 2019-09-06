@@ -96,15 +96,20 @@ ArticleListView의 템플릿이 base.html에서 article_list.html로 변경되�
 
 class ArticleListView(TemplateView):
     template_name = 'article_list.html'    # 뷰 전용 템플릿 생성.
-    queryset = Article.objects.all()
+    queryset = None
 
     def get(self, request, *args, **kwargs):
         print(request.GET)
         ctx = {
             'view': self.__class__.__name__,
-            'data': self.queryset
+            'data': self.get_queryset()
         }
         return self.render_to_response(ctx)
+
+    def get_queryset(self):
+        if not self.queryset:
+            self.queryset = Article.objects.all()
+        return self.queryset
 ```
 > 템플릿 파일명을 article_list.html로 지은 이유가 있습니다. 모델을 기반으로 하는 ListView나 DetailView등은 클래스 변수 model을 정의할 경우 자동으로 모델명(소문자) + '_list.html' 또는 '_detail.html'로 템플릿파일을 자동으로 생성합니다. 파일명을 이런식으로 작명한다면 나중에 더 복잡한 제네릭뷰를 사용할 때 편리하고 오류를 줄일 수 있습니다.~~뿌듯해. 간만에 꿀팁 지렸다.^^~~
 
@@ -742,6 +747,55 @@ class ArticleCreateUpdateView(TemplateView):
             'article': self.get_object() if action == 'update' else None
         }
         return self.render_to_response(ctx)
+```
+
+### 템플릿 내 message 중복
+각 화면 템플릿마다 message 출력을 위한 코드가 동일한 모습으로 추가되어 있습니다. 모든 화면이 base.html 템플릿을 확장하고 있기 때문에 base.html 템플릿에서 처리하면 base.html 템플릿을 확장하는 곳에서는 따로 처리해 줄 필요가 없어집니다.
+
+아래와 같이 base.html 을 수정하고, article_list.html, article_update.html 에서 message 객체를 출력하는 코드를 삭제합니다.
+```html
+<!-- bbs/templates/base.html -->
+
+{% raw %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        {% block title %}
+        <title>bbs - minitutorial</title>
+        {% endblock title %}
+
+        {% block meta %}
+        {% endblock meta %}
+
+        {% block scripts %}
+        {% endblock scripts %}
+
+        {% block css %}
+        {% endblock css %}
+    </head>
+    <body>
+    {% block header %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/article/">게시글 목록</a>
+            </div>
+        </div>
+    </nav>
+    {% if messages %}    <!-- 추가된 부분 시작 -->
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+          {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}          <!-- 추가된 부분 끝 -->
+    {% endblock header %}
+    
+    {% block content %}
+    {% endblock content %}
+    </body>
+</html>
+{% endraw %}
 ```
 
 이제 기본적인 기능들은 완성되었습니다. 제네릭뷰도 다양하게 구현했다가 너무 많은 걸 설명하다보니 다 빼고 새로 `TemplateView`로만 구현하는 것을 변경했습니다. 모델과 템플릿에서도 좀 더 빙글빙글 꼬아서 여러 탬플릿태그들을 설명하고 싶었는데 ~~여러분의 수준을 고려하여~~ 미니튜토리얼이라 일단 여기에서 마무리하고 **사용자인증**, **페이지네이션** 등의 기능은 추후에 추가하기로 약속! ~~찡끗~~
