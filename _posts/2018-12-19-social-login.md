@@ -308,7 +308,7 @@ class NaverLoginMixin:
         user.save()
 
         # 로그인
-        login(self.request, user, 'user.oauth.backends.NaverBackend')
+        login(self.request, user, 'user.oauth.backends.NaverBackend')  # NaverBackend 를 통한 인증 시도
 
         # 세션데이터 추가
         self.set_session(access_token=access_token, refresh_token=refresh_token, expires_in=expires_in, token_type=token_type)
@@ -429,7 +429,29 @@ class NaverBackend(ModelBackend):
 
 `user_can_authenticate` 메소드는 사용자 데이터의 `is_active` 가 `True` 인지 확인하는 기능을 제공합니다. 비밀번호와 관계가 없으니 이것을 확인하는 것으로 인증백엔드의 인증테스트를 종료합니다.
 
-소셜로그인은 이미 프로바이더에게 인증을 위임했기 때문에 인증백엔드에서 추가로 인증할 것이 별로 없습니다. 다만 사용자 모델의 정의가 이전 예제와 같지 않고 무언가 추가로 인증해야 할 필드들이 있을 경우에만 해당 필드를 이용해서 추가 인증을 하면 됩니다.
+소셜로그인은 이미 프로바이더(네이버)에게 인증을 위임했기 때문에 인증백엔드에서 추가로 인증할 것이 별로 없습니다. 다만 사용자 모델의 정의가 이전 예제와 다르게 무언가 추가로 인증해야 할 필드들이 생겼을 경우에만 해당 필드를 이용해서 추가 인증을 하면 됩니다.
+
+### 인증백엔드 설정
+
+인증백엔드는 `NaverLoginMixin` 에서 사용을 하지만 이것은 로그인을 시도할 때 어떤 백엔드를 사용할 지에 대한 설정입니다. 이후 로그인된 상태에서 또다른 요청을 할 때 장고는 세션의 정보를 확인하여 로그인된 사용자가 맞는지, 맞다면 어떤 사용자인지를 식별하는데 장고의 기본값인 기본인증백엔드를 통해 식별처리를 실행합니다. 소셜로그인으로 로그인 사용자를 위해 설정파일의 `AUTHENTICATION_BACKENDS` 변수에 `NaverBackend` 를 추가합니다. `AUTHENTICATION_BACKENDS`는 설정은 세션의 사용자 정보를 식별할 때 사용될 백엔드를 리스트로 설정하여 실제 사용자 정보를 식별할 때 리스트의 순서대로 백엔드에 인증을 시도하고, 인증이 되면 해당 인증된 사용자 정보를 넘겨주고, 인증에 실패할 경우 리스트의 다음 백엔드에 위임하게 됩니다. 모든 백엔드에서 인증에 실패할 경우 인증되지 않은 사용자라고 처리하는 것이죠. 
+
+```python
+# minitutorial/settings.py
+
+# 생략
+
+NAVER_CLIENT_ID = 'your client id'
+NAVER_SECRET_KEY = 'your secret key'
+
+AUTHENTICATION_BACKENDS = [
+    'user.oauth.backends.NaverBackend',           # 네이버 인증백엔드
+    'django.contrib.auth.backends.ModelBackend'
+]
+
+# 생략
+```
+
+> 센스있는 분들은 리스트의 순서가 중요함을 느끼실 텐데 가장 많은 사용자가 이용하는 백엔드를 가장 위에 설정하고, 가장 사용하지 않는 백엔드를 가장 밑에 설정하는 것이 인증 성능을 높이는 한가지 포인트라고 할 수도 있습니다. ~.^ 찡끗~
 
 ### next query 파라미터 처리
 
@@ -614,7 +636,7 @@ urlpatterns = [
 {% endraw %}
 ```
 
-이제 `login_form.html` 과 r`egistration_form.html` 의 `include` 템플릿태그를 수정합니다.
+이제 `login_form.html` 과 `registration_form.html` 의 `include` 템플릿태그를 수정합니다.
 
 ```html
 <!-- user/templates/login_form.html -->
@@ -644,7 +666,7 @@ urlpatterns = [
 
 소셜로그인 기능을 user 앱과는 별도의 앱으로 분리해도 되겠지만 여기서는 user 앱 내부에 소셜로그인 기능을 내장하도록 했습니다. 소셜로그인 기능만 다른 프로젝트에서 재사용하고 싶으시다면 아까 생성한 static 파일들과 뷰, 그리고 `oauth` 패키지를 따로 앱으로 분리하셔도 됩니다. 
 
-> 사용방법은 3가지만 하시면 됩니다.
+> 앱분리 후 분리된 앱의 사용방법은 3가지만 하시면 됩니다.
 > 1. 설정파일에 `AUTHENTICATION_BACKENDS`, `NAVER_CLIENT_ID`, `NAVER_SECRET_KEY` 설정
 > 2. `urlpatterns` 에 `CallbackView` 를 등록합니다.
 > 3. 템플릿 생성 및 `naverLogin()` 호출. 템플릿은 어쩔 수 없으니 해당 프로젝트에 맞게 생성하시고 네이버 로그인 버튼의 `onclick` 속성을 `naverLogin()` 으로 설정해주시면 됩니다.
