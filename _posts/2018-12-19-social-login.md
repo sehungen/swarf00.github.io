@@ -119,7 +119,7 @@ NAVER_SECRET_KEY = 'your secret key'
 기존 로그인과 동일한 화면에서 보여지지만 분리해두는게 소스코드를 보기에도 좋고, 로그인 외의 다른 화면에서도 사용하기에 좋습니다. 나중에 가입하기 화면에서도 소셜로그인 기능을 추가할 건데 동일하게 `include` 템플릿태그만 추가하면 됩니다. `social_login_panel.html` 파일을 하나 만드셔서 아래와 같이 추가합니다.
 
 ```html
-<!-- user/templates/user/partials/form_field.html -->
+<!-- user/templates/user/partials/social_login_panel.html -->
 
 {% raw %}
 {% load static %}
