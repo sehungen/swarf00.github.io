@@ -169,7 +169,7 @@ NAVER_SECRET_KEY = 'your secret key'
 아까 보신대로 네이버 소셜로그인을 하기 위해서는 javascript 코드도 약간 필요합니다. 이번에 구현할 javascript 는 서버에서 렌더링할 부분이 없기 때문에 static 디렉토리에 파일을 분리합니다. 우선 `social_login_panel.html` 파일 하단에 `script` 태그를 추가합니다.
 
 ```html
-<!-- user/templates/user/partials/form_field.html -->
+<!-- user/templates/user/partials/social_login_panel.html -->
 
 <!-- 생략 -->
 
@@ -602,7 +602,7 @@ urlpatterns = [
 `include` 템플릿태그 하나로 소셜로그인을 추가했습니다.😏 회원가입 화면에서는 소셜로그인 화면을 조금 다르게 하고 싶다면 `include` 하지 않고 새로 구현하셔도 상관없습니다. 만약 회원가입 화면에서도 패널이름으로 소셜로그인 이라고 표시되는 것이 보기 싫으시다면 인자로 `include` 템플릿 태그에 `with` 키워드로 패널이름을 넘겨주셔도 좋습니다. 기왕 말이 나왔으니 리팩토링을 하도록 하죠. 먼저 `social_login_panel.html` 템플릿에서 `panel_name` 이라는 변수로 소셜로그인 이라는 텍스트를 대체합니다.
 
 ```html
-<!-- user/templates/user/partials/form_field.html -->
+<!-- user/templates/user/partials/social_login_panel.html -->
 
 {% raw %}
 {% load static %}
