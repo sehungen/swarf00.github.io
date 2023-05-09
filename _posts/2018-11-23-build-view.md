@@ -296,7 +296,7 @@ ctx 값은 `view`와 `data`로 키를 구성했습니다. `view`의 값 `self.__
     </body>
 </html>
 ```
-템플릿에서 ctx의 값을 사용하는 방법은 간단합니다. ctx 객체에 저장된 데이터의 key 이름을 `{{ "{{ " }}}}` 안에 넣어주기만 합니다. 템플릿 엔진은 `{{ "{{ " }}}}`로 표시를 안에 있는 key에 하당하는 값으로 치환해줍니다.
+템플릿에서 ctx의 값을 사용하는 방법은 간단합니다. ctx 객체에 저장된 데이터의 key 이름을 `{{ "{{ " }}}}` 안에 넣어주기만 합니다. 템플릿 엔진은 `{{ "{{ " }}}}`로 표시 안에 있는 key에 해당하는 값으로 치환해줍니다.
 
 ![ArticleListView 결과]({{ site.url }}/snapshots/result_articlelist_01.png){:.border .rounded .shadow}
 
